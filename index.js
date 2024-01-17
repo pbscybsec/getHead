@@ -17,9 +17,9 @@ app.get('/secret', function (req, res) {
 });
 
 app.head('/secret', function (req, res) {
-    // Vulnerability: Exposing flag in headers with HEAD request
+    console.log('HEAD request received'); // Debugging line
     res.set('X-FLAG', flag);
-    res.status(200).end();
+    res.status(200).send('HEAD request to /secret'); // Simple response
 });
 
 app.listen(port, () => {
